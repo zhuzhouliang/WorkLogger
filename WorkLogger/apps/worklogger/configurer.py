@@ -3,9 +3,16 @@ import re
 
 
 class WindowStrategy:
+    '''
+    Window's strategy defined when to capture current active window
+    the window_and_action_dict define which keys to trigger screen capture.
+    screen_capture_seconds_dict defines how many seconds that current window
+    will be interval captured(even there's no key stroke)
+    '''
     _100_SECS_A_SHOT = 100
     SHORTEST_TITLE = 4
 
+    # key is window title regex pattern, value is keys that will trigger screen capture
     window_and_action_dict = {
         ".+- Google Chrome": {"capture": ["<Snapshot>"]},
         ".+@.+:~": {"capture": ["<Snapshot>", "<Return>"]},
